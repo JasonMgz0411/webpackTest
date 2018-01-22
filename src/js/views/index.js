@@ -1,5 +1,3 @@
-import $ from 'jquery';
-import event from './event';
-
-$('body').append('<div class="title">Hello World</div>');
-$('.title').click(event);
+var likeController = require('../controllers/likeController');
+var likeObj = new likeController();
+likeObj.init();
