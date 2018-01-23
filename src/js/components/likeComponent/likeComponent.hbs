@@ -1,6 +1,25 @@
-<div>
-    <h3 class="name ">
-        {{ name }}
-        {{#list people}}{{name}} {{age}}{{/list}}
-    </h3>
+<div class="likes-con">
+    <ul>
+        {{#each data}}
+        <li class="like-li">
+            <a href="{{jumpUrl}}">
+                <div class="info-head">
+                    <img class="like-to" src="{{imgUrl}}"></img>
+                    {{#if status}}
+                    <div class="like-info">{{status}}</div>
+                    {{/if}}
+                </div>
+                <div class="info-foot">
+                    <div></div>
+                    <div>
+                        {{#if upStatus}}
+                        <span></span>
+                        {{/if}}
+                        {{infoToline info}}
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
 </div>

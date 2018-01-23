@@ -11,7 +11,7 @@ likeController.prototype = {
         var likeObj = new likeModule();
         likeObj.init(function(data) {
             var view = new likeView();
-            view.create(data.data);
+            view.create(data);
             $('body').append(view.getDom());
         });
     }

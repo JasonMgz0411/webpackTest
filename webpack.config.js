@@ -3,10 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const express = require('express');
-const app = express();
-const apiRouter = express.Router();
 let data = require('./data.json');
-app.use('/api', apiRouter);
 
 module.exports = {
     entry: {
@@ -17,12 +14,12 @@ module.exports = {
         contentBase: './dist',
         port: 8080,
         before(app) {
-            app.get('/api/getLikesData', function (req, res) {
+            app.post('/api/getLikesData', function (req, res) {
                 res.json({
                     status: 1,
                     data: data
                 });
-            })
+            });
         }
     },
     plugins: [
@@ -40,6 +37,20 @@ module.exports = {
             {
                 test: /\.hbs$/,
                 loader: 'handlebars-loader'
+            },
+            {
+                test: /\.css$/,
+                loader: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.less$/,
+                use: [{
+                    loader: 'style-loader'
+                }, {
+                    loader: 'css-loader'
+                }, {
+                    loader: 'less-loader'
+                }]
             }
         ]
     }

@@ -1,4 +1,5 @@
 //视图层
+var less = require('./likeComponent.less');
 var template = require('./likeComponent.hbs');
 function likeComponent() { }
 likeComponent.prototype = {
