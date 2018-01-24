@@ -2,7 +2,7 @@
     <ul>
         {{#each data}}
         <li class="like-li">
-            <a href="{{jumpUrl}}">
+            <a href="{{jumpUrl}}" title="{{videoName}}">
                 <div class="info-head">
                     <img class="like-to" src="{{imgUrl}}"></img>
                     {{#if status}}
@@ -10,8 +10,8 @@
                     {{/if}}
                 </div>
                 <div class="info-foot">
-                    <div></div>
-                    <div>
+                    <div class="v-name">{{videoName}}</div>
+                    <div class="v-info">
                         {{#if upStatus}}
                         <span></span>
                         {{/if}}
