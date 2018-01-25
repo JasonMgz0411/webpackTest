@@ -1,3 +1,3 @@
-module.exports = function(info) {
+export default function(info) {
     return info.join('/');
 };

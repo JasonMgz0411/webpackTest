@@ -1,6 +1,6 @@
 //视图层
-var less = require('./likeComponent.less');
-var template = require('./likeComponent.hbs');
+import less from './likeComponent.less';
+import template from './likeComponent.hbs';
 function likeComponent() { }
 likeComponent.prototype = {
     constructor: likeComponent,
@@ -12,4 +12,4 @@ likeComponent.prototype = {
     }
 };
 
-module.exports = likeComponent;
+export default likeComponent;

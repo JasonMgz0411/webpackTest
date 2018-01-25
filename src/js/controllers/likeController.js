@@ -1,7 +1,7 @@
 //控制层
-var $ = require('jquery');
-var likeModule = require('../modules/likeModule');
-var likeView = require('../components/likeComponent/likeComponent');
+import $ from 'jquery';
+import likeModule from '../modules/likeModule';
+import likeView from '../components/likeComponent/likeComponent';
 function likeController() {
 
 }
@@ -9,7 +9,7 @@ likeController.prototype = {
     constructor: likeController,
     init: function () {
         var likeObj = new likeModule();
-        likeObj.init(function(data) {
+        likeObj.init(function (data) {
             var view = new likeView();
             view.create(data);
             $('body').append(view.getDom());
@@ -17,4 +17,4 @@ likeController.prototype = {
     }
 };
 
-module.exports = likeController;
+export default likeController;

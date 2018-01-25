@@ -1,37 +1,21 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-const express = require('express');
-let data = require('./data.json');
+const cleanWebpackPlugin = require('clean-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
         app: './src/js/views/index.js'
     },
-    devtool: 'inline-source-map',
-    devServer: {
-        contentBase: './dist',
-        port: 8080,
-        before(app) {
-            app.post('/api/getLikesData', function (req, res) {
-                res.json({
-                    status: 1,
-                    data: data
-                });
-            });
-        }
-    },
-    plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new HtmlWebpackPlugin({
-            title: 'Output Management'
-        })
-    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name].bundle.js'
+        filename: 'js/[name][hash].js'
     },
+    plugins: [
+        new cleanWebpackPlugin(['dist']),
+        new htmlWebpackPlugin({
+            title: 'Production'
+        })
+    ],
     module: {
         rules: [
             {
@@ -61,7 +45,7 @@ module.exports = {
                             importLoaders: 1
                         }
                     },
-                    'postcss-loader', 
+                    'postcss-loader',
                     {
                         loader: 'less-loader',
                         options: {

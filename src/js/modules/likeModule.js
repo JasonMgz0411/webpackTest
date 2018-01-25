@@ -1,5 +1,5 @@
 //数据层
-var getLikesData = require('../api/getLikesData');
+import getLikesData from '../api/getLikesData';
 function likeModule() {
     this.data = null;
 }
@@ -14,4 +14,4 @@ likeModule.prototype = {
     }
 };
 
-module.exports = likeModule;
+export default likeModule;
